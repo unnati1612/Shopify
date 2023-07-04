@@ -14,6 +14,7 @@ const Product = ({ item }) => {
   };
   
   // console.log('wishlist==>',wishlistItems)
+  
 
   return (
     <div>
