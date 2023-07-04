@@ -7,11 +7,11 @@ const Wishlist = () => {
     let wishlistItems=useSelector(state=>state.wishlist)
   return (
     <div className='container d-flex flex-column justify-content-around align-items-center'>
-    <h3 className='text-center my-3'>Wishlist</h3>
+    <h3 className='text-center mt-3'>Wishlist</h3>
 
     {
         wishlistItems.products.length==0?
-      <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
+      <div className='d-flex flex-column justify-content-center align-items-center mt-2'>
       <img src={wishlistIcon}/>
       <h4 className='mt-2 ms-4'>Time to fill the Wishlist!</h4>
       <p className='mt-2 ms-4'>Wishlist is Empty</p>

@@ -6,6 +6,10 @@ background-color: #ffcccc !important;
     background-color: #ffcccc;
 } */
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .categorybox:nth-child(odd) {
     background: #306bd9;
     color:#ffcccc

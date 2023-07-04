@@ -1,28 +1,51 @@
 import React, { useState } from 'react'
 import loginbg from '../assets/loginbg.png'
 import { Link, useNavigate } from 'react-router-dom'
+import { Formik } from 'formik'
+import { LoginValidation } from '../validations'
+import { toast } from 'react-toastify'
 const Login = () => {
-  const [userData,setUserData]=useState({
+ 
+  const initialValues={
     email:'',
     password:''
-  })
-  const navigate = useNavigate();
-  const handleChange=e=>{
-    setUserData({...userData,[e.target.name]:e.target.value})
   }
-  const handleSubmit=e=>{
-    e.preventDefault()
-    console.log(userData)
+  const navigate = useNavigate();
+  
+  const handleSubmit=(values)=>{
 
     let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):null
     if(users!=null){
       if(users.some((item)=>(
-        item.email==userData.email&&item.password==userData.password
+        item.email==values.email&&item.password==values.password
       ))){
         localStorage.setItem('isLoggedIn',true);
         window.location.href="/";
         // navigate('/')
-      }      
+
+        toast.success('Login Successful!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      }  
+      else{
+        toast.error('Login Failed!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      }    
     }
   }
   return (
@@ -34,11 +57,23 @@ const Login = () => {
             <h4 >Welcome Back !</h4>  
             <p>Login to start Shopping!!</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <Formik initialValues={initialValues} validationSchema={LoginValidation} onSubmit={handleSubmit}>
+            {(formik)=>(
+              <form onSubmit={formik.handleSubmit}>
+                <div className='mb-2'>
             <label for="email">Email Id</label>
-        <input type='email' required className='form-control mb-2  bg-light border-2 border' onChange={handleChange} name="email"/>
+        <input type='email'  className='form-control  bg-light border-2 border' onChange={formik.handleChange} onBlur={formik.handleBlur} name="email"/>
+        {
+                    formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>
+                } 
+        </div>
+        <div className='mb-2'>
         <label for="password">Password</label>
-        <input type='password' required className='form-control mb-2  bg-light border-2 border' onChange={handleChange}  name="password"/>
+        <input type='password'  className='form-control bg-light border-2 border' onChange={formik.handleChange} onBlur={formik.handleBlur}  name="password"/>
+        {
+        formik.errors.password && formik.touched.password && <small className="text-danger">{formik.errors.password}</small>
+                } 
+        </div>
         <button type='submit' className='btn btn-primary mt-2 w-100'>Login</button>
         <div className="hr-theme-slash-2 mt-2">
   <div className="hr-line"></div>
@@ -50,6 +85,9 @@ const Login = () => {
 </svg>Continue With Google</button>
     <small className='mt-3 align-self-start'>Not a Member? <Link to="/signup">Register</Link></small>
             </form>
+            )}
+            
+            </Formik>
           </div>
         </div>
         <div className='col-6 p-0 m-0'>     

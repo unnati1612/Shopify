@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
     let cartProducts=useSelector(state=>state.cart);
   return (
-    <div className='container  mb-2 '>
-    <h2 className='text-center mb-4'><i>Cart Details</i></h2>
+    <div className='container '>
+    <h2 className='text-center mt-4'><i>Cart Details</i></h2>
     {
       cartProducts.products.length==0?
-      <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
+      <div className='d-flex flex-column justify-content-center align-items-center mt-2'>
       <img src={cartImg}/>
       <h4 className='mt-2 ms-4'>Time to start Shopping!</h4>
 
@@ -23,7 +23,7 @@ const Cart = () => {
       </div>
       :
       <div className='row'>
-    <div className='border col-8'>
+    <div className='border col-md-8 col-12'>
     <h4 className='text-center my-3'>Cart Items</h4>
     <div className='px-2'>
     {
@@ -35,7 +35,7 @@ const Cart = () => {
     }
     </div>
     </div>
-    <div className='border col-4'>
+    <div className='border col-md-4 col-12'>
     <h4 className='text-center mb-3'>Summary</h4>
     <div className='px-4'>
     <div className='d-flex justify-content-between'>

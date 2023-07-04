@@ -3,10 +3,10 @@ import logo from '../assets/logo.png'
 const Footer = () => {
   return (
       <div className='bg-black  text-light row mt-3 px-3 py-4 mx-0'>
-        <div className='col-md-4 col-12'>
+        <div className='col-md-4 col-12 '>
             <strong>Download our App</strong>
             <p className='text-secondary'>Download App for Android and ios mobile phone.</p>
-            <div className='d-flex justify-content-start'>
+            <div className='mx-auto d-flex justify-content-start'>
             <button className='btn btn-light d-flex p-1 me-2' style={{height:"50px"}}>
                 <div className=''> 
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
@@ -32,8 +32,8 @@ const Footer = () => {
         </div>
         <div className='col-md-4 col-12 mt-2 align-top text-center' >
         
-       <img src={logo} style={{width:"100%",height:"70px"}}/>
-        <p className='text-light'>Discover the World's most Trending Products at your convvenience!!</p>
+       <img src={logo} style={{maxWidth:"300px",maxHeight:"60px"}} className='mb-2'/>
+        <p className='text-light'>Discover the World's most Trending Products at your convenience!!</p>
 
         </div>
         <div className='col-md-4 col-12 text-center'>

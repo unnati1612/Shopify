@@ -12,17 +12,17 @@ const CartProduct = ({item}) => {
     }
   return (
     <div className='row mb-3'>
-    <div className='col-2 border p-0'>
+    <div className='col-md-2 col-4 border p-0'>
     <img src={item?.thumbnail} style={{width:"100%", height:"100px"}} />
     </div>
-    <div className='col-6 border  d-flex flex-column justify-content-around '>
+    <div className='col-md-6 col-8 border  d-flex flex-column justify-content-around '>
     <h5 className='ms-3'>{item?.title}</h5>
     <div className='d-flex justify-content-around'>
     <button className='btn btn-danger' onClick={()=>dispatch(removeFromCart(item))}>Remove Item</button>
     <button className='btn likebtn' onClick={()=>{handleWishlist()}}>Move to Wishlist</button>
     </div>    
     </div>
-    <div className='col-4 border d-flex flex-column justify-content-around align-items-center pt-2'>
+    <div className='col-md-4 col-12 border d-flex flex-column justify-content-around align-items-center pt-2'>
     <div className='d-flex justify-content-center' style={{height:"30px"}}>
     <button className='btn btn-secondary me-2 btn-sm' onClick={()=>dispatch(decrement(item))}> - </button>
     <p>{item?.qty}</p>

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState={
     products:[],
@@ -11,6 +12,18 @@ const wishlistSlice=createSlice({
     initialState,
     reducers:{
         addToWishlist:(state,action)=>{
+          toast.info('Added to Wishlist!', {
+            position: "bottom-right",
+        toastId:action.payload.item.id,
+
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
           let index= state.products.findIndex((item)=>(
             item.id==action.payload.item.id
           ))
@@ -50,7 +63,18 @@ const wishlistSlice=createSlice({
               ))
               state.products.splice(index,1);
           state.totalItems=state.products.length;
+          toast.warn('Removed from Wishlist!', {
+            position: "bottom-right",
+        toastId:action.payload.id,
 
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
         }
 
     }

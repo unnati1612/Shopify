@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { toast } from "react-toastify";
 
 const initialState={
     products:[],
@@ -12,6 +13,19 @@ const cartSlice=createSlice({
     initialState,
     reducers:{
         addToCart:(state,action)=>{
+
+            toast.success('Added to Cart!', {
+                position: "bottom-right",
+                autoClose: 3000,
+        toastId:action.payload.item.id,
+
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(action.payload)
             let index=state.products.findIndex((item)=>(
                 item.id==action.payload.item.id
@@ -58,7 +72,18 @@ const cartSlice=createSlice({
             state.totalPrice-=(action.payload.price*state.products[index].qty);
             state.products.splice(index,1);
             state.totalItems=state.products.length;
+            toast.error('Removed From Cart!', {
+                position: "bottom-right",
+                autoClose: 3000,
+            toastId:action.payload.id,
 
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
 })
