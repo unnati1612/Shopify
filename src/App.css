@@ -1,0 +1,116 @@
+.likebtn,.likebtn:hover,.likebtn:active,.likebtn:visited{
+background-color: #ffcccc !important;
+}
+
+/* .categorybox{
+    background-color: #ffcccc;
+} */
+
+.categorybox:nth-child(odd) {
+    background: #306bd9;
+    color:#ffcccc
+}
+.categorybox:nth-child(even) {
+    background:  #ffcccc;
+    color:rgb(66, 88, 254)
+}
+
+.categorymain{
+    background-color: 	#f9ecec;
+    color:#000099
+}
+.categorymain:hover{
+    background-color: #ccebff	;
+    color:	 #f3a5a5
+}
+
+.btnqty,.btnqty:hover,.btnqty:active,.btnqty:visited{
+    background-color: rgb(172, 167, 167) !important;
+   
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: #FFF #FFF transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent blue blue;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  .loader::before {
+    width: 32px;
+    height: 32px;
+    border-color: #FFF #FFF transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+      
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  /* =========>login css======================= */
+  .signupleft{
+    background-color: #3632e6;
+    border-radius: 10px;
+    
+}
+
+.signbox{
+    border-radius: 20px;
+}
+.hr-theme-slash-2 {
+    display: flex;
+    
+    .hr-line {
+      width: 100%;
+      position: relative;
+      margin: 15px;
+      border-bottom: 1px solid #000;
+      padding: 0%;
+    }
+   
+  }
+
+  .logotext{
+    color: #ffcccc !important;
+  }
+
+  .linkdiv{
+    color: black !important;
+    text-decoration: none !important;
+  }
