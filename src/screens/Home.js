@@ -101,7 +101,6 @@ const Home = () => {
           ))
     }      
     </Slider>
-
     <h2 className='my-5'>Latest Products</h2>
     <div className=' border row'>
     {

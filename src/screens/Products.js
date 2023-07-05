@@ -13,7 +13,7 @@ const Products = () => {
   const [productList, setProductList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [sortProducts, setSortProducts] = useState("");
-
+  const [category,setCategory]=useState("")
   let productListSelector = useSelector((state) => state.products);
   let categoryListSelector = useSelector((state) => state.categories);
   let dispatch = useDispatch();
@@ -66,11 +66,12 @@ const Products = () => {
             <Form.Select
               aria-label="Sort"
               className="bg-light"
+              value={category}
               onChange={(e) => {
                 if (e.target.value == "allproducts") {
                   dispatch(getProductList());
                 } else {
-
+                  setCategory(e.target.value);
                   dispatch(getProductByCategory(e.target.value));
                 }
               }}

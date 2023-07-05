@@ -121,7 +121,10 @@ background-color: #ffcccc !important;
 
   .slick-prev:before{
     color:black !important;
+    font-size: 25px !important;
   }
   .slick-next:before{
     color:black !important;
+    font-size: 25px !important;
+
   }
