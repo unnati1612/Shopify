@@ -6,8 +6,8 @@ const Category = ({ category }) => {
   return (
     <Link to={`/category/${category}`} className=" text-decoration-none">
       <div
-        className="border text-center d-flex align-items-center justify-content-center mb-3 rounded categorymain"
-        style={{ height: "150px", width: "200px" }}
+        className="border p-1 text-center d-flex align-items-center justify-content-center mb-3 rounded categorymain"
+        style={{ height: "100px" }}
       >
         <h5 className="text-capitalize">{category}</h5>
       </div>

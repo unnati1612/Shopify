@@ -19,10 +19,12 @@ const Categories = () => {
   return (
     <div className='container text-center'>
     <h3 className='my-3'>CATEGORIES</h3>
-    <div className='d-flex flex-wrap justify-content-around '>
+    <div className='row'>
     {
         categories?.map((item)=>(
+          <div className='col-lg-2 col-md-3 col-4'>
           <Category category={item}/>
+          </div>
         ))
         
     }

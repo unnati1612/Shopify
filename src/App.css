@@ -118,3 +118,10 @@ background-color: #ffcccc !important;
     color: black !important;
     text-decoration: none !important;
   }
+
+  .slick-prev:before{
+    color:black !important;
+  }
+  .slick-next:before{
+    color:black !important;
+  }
