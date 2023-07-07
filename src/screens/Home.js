@@ -8,6 +8,7 @@ import { getCategoryList } from '../reduxToolkit/actions/categoryAction'
 import CategoryHome from '../components/category/CategoryHome'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
+import { getLoginStatus } from '../reduxToolkit/slices/loginSlice'
 
 const Home = () => {
 

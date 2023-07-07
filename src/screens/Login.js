@@ -20,11 +20,11 @@ const Login = () => {
         item.email==values.email&&item.password==values.password
       ))){
         localStorage.setItem('isLoggedIn',true);
-        window.location.href="/";
-        // navigate('/')
+        // window.location.href="/";
+        navigate('/')
 
         toast.success('Login Successful!', {
-          position: "top-right",
+          position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,

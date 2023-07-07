@@ -22,7 +22,7 @@ const Wishlist = () => {
       </div>
       </div>
       :
-      <div className='col-md-7 mt-3 border container border-round '>
+      <div className='col-md-7 mt-3  container border-round '>
     {
         wishlistItems?.products?.map((item)=>(
             <WishlistProduct item={item}/>
