@@ -19,6 +19,7 @@ const Home = () => {
   useEffect(()=>{
     dispatch(latestProductList())
     dispatch(getCategoryList())
+    
   },[])
   let latestProductsList=useSelector(state=>state.products)
   let categoriesList=useSelector(state=>state.categories)

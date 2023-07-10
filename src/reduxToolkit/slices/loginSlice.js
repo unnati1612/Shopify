@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState={
     loggedIn: false,
+  
 }
 
 const loginSlice= createSlice({
@@ -10,8 +11,9 @@ const loginSlice= createSlice({
     reducers:{
         getLoginStatus:(state)=>{
             state.loggedIn=localStorage.getItem('isLoggedIn')
-            console.log("logged in",state.loggedIn)
-        }
+            // console.log("logged in",state.loggedIn)
+        },
+        
     }
 })
 

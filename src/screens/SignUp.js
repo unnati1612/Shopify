@@ -33,7 +33,8 @@ const SignUp = () => {
 
     let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')) : null
     if(users==null){
-      localStorage.setItem('users',JSON.stringify([values]))
+      localStorage.setItem('users',JSON.stringify([{...values,wishlist:[],cart:[],totalPrice:0}]))
+
 
       navigate('/login')
       toast.success('Registration Successful!', {
@@ -69,8 +70,10 @@ const SignUp = () => {
         return
       }
       else{
-      users.push(values)
+      users.push({...values,wishlist:[],cart:[],totalPrice:0})
+      localStorage.removeItem('users')
       localStorage.setItem('users',JSON.stringify(users))
+
       navigate('/login')
       toast.success('Registration Successful!', {
         position: "bottom-right",

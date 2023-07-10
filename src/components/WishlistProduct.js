@@ -6,10 +6,7 @@ import { decrement, increment, removeFromWishlist } from '../reduxToolkit/slices
 const WishlistProduct = ({item}) => {
     let dispatch=useDispatch();
   let qty=item.qty;
-    const handleAdd=(item)=>{
-        dispatch(addToCart({item,qty}))
-         dispatch(removeFromWishlist(item))
-    }
+  
   return (
     <div className='row mb-3'>
     <div className='col-md-3 col-5 border rounded-3 p-0 ' style={{height:"120px"}}>
@@ -25,7 +22,8 @@ const WishlistProduct = ({item}) => {
     </div>
     </div>
     <div className='col-md-4 col-12 border d-flex flex-md-column justify-content-around align-items-center '>
-    <button className='btn btn-primary m-2' onClick={()=>handleAdd(item) }>Add To Cart</button>
+    <button className='btn btn-primary m-2' onClick={()=>{dispatch(removeFromWishlist(item));
+      dispatch(addToCart({item,qty}))} }>Add To Cart</button>
     <button className='btn btn-danger m-2' onClick={()=>dispatch(removeFromWishlist(item))}>Remove</button>
     </div>
     </div>

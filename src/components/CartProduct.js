@@ -5,11 +5,8 @@ import { addToWishlist } from '../reduxToolkit/slices/wishlistSlice'
 
 const CartProduct = ({item}) => {
     let dispatch=useDispatch()
-    const handleWishlist = ()=>{
-      let qty=item.qty
-      dispatch(addToWishlist({item,qty}));
-      dispatch(removeFromCart(item))
-    }
+    
+    
   return (
     <div className='row mb-3'>
     <div className='col-md-2 col-4 border p-0'>
@@ -19,7 +16,8 @@ const CartProduct = ({item}) => {
     <h5 className='ms-3'>{item?.title}</h5>
     <div className='d-flex justify-content-around'>
     <button className='btn btn-danger' onClick={()=>dispatch(removeFromCart(item))}>Remove Item</button>
-    <button className='btn likebtn' onClick={()=>{handleWishlist()}}>Move to Wishlist</button>
+    <button className='btn likebtn' onClick={()=>{ dispatch(addToWishlist({item,qty:item.qty}));
+      dispatch(removeFromCart(item))}}>Move to Wishlist</button>
     </div>    
     </div>
     <div className='col-md-4 col-12 border d-flex flex-column justify-content-around align-items-center pt-2'>

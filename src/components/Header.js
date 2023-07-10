@@ -8,13 +8,41 @@ import LogoImg from '../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoginStatus } from '../reduxToolkit/slices/loginSlice';
+import Swal from 'sweetalert2';
+import { setCartDetails } from '../reduxToolkit/slices/cartSlice';
+import { setWishlistDetails } from '../reduxToolkit/slices/wishlistSlice';
 const Header = () => {
   let cartDetails = useSelector(state => state.cart);
   let wishlistDetails = useSelector(state => state.wishlist);
+  let loginUser=localStorage.getItem('loginUser');
   let dispatch = useDispatch();
-  const handleLogout=()=>{
-   localStorage.removeItem('isLoggedIn');
+  useEffect(()=>{
     dispatch(getLoginStatus())
+  },[])
+  useEffect(()=>{
+    dispatch(setCartDetails())
+    dispatch(setWishlistDetails())
+  },[loginUser])
+  const handleLogout=()=>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to Logout!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Logged out!',       
+         
+        )
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loginUser')
+        dispatch(getLoginStatus())
+      }
+    })
   }
 let loginStatus = useSelector(state => state.login.loggedIn)
 

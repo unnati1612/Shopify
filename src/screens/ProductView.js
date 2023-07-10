@@ -40,8 +40,8 @@ const ProductView = () => {
           <div className='d-flex flex-md-column align-items-center flex-row flex-wrap '>
             {
               item?.images?.map((imgurl) => (
-                <div style={{ width: "100px", height: "90px" }} className='mb-2 border' onClick={()=>imageChange(imgurl)}>
-                  <img src={imgurl} style={{ width: "100%", height: "100%" }} className='' />
+                <div style={{ width: "100px", height: "90px" }} className='mb-2 border cursor-pointer ' onClick={()=>imageChange(imgurl)}>
+                  <img src={imgurl} style={{ width: "100%", height: "100%" }} />
                 </div>
               ))
             }

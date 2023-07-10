@@ -11,7 +11,6 @@ const Login = () => {
     password:''
   }
   const navigate = useNavigate();
-  
   const handleSubmit=(values)=>{
 
     let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):null
@@ -20,6 +19,7 @@ const Login = () => {
         item.email==values.email&&item.password==values.password
       ))){
         localStorage.setItem('isLoggedIn',true);
+        localStorage.setItem('loginUser',values.email)
         // window.location.href="/";
         navigate('/')
 

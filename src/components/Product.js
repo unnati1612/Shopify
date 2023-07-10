@@ -14,22 +14,42 @@ const Product = ({ item }) => {
     qty > 1 ? setQty(qty - 1) : setQty(qty);
   };
   
-  
+  let loginUser=localStorage.getItem('loginUser')
+let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):[]
+ let indexUser=users?.findIndex((user)=>(
+      user.email==loginUser
+    ))
+    let index= users[indexUser]?.wishlist?.findIndex((element)=>(
+      element.id==item.id
+    ))
+
   let navigate= useNavigate();
   useEffect(()=>{
     dispatch(getLoginStatus())
+    
   },[])
   let loginStatus=useSelector(state=>state.login.loggedIn)
+ 
+  const handleAddWishlist=()=>{
+    dispatch(addToWishlist({item,qty}))   
+    
+  }
+  const handleRemoveFromWishlist =()=>{  
+      
 
-  const handleWishlist=()=>{
-    dispatch(addToWishlist({item,qty}))
-    navigate('/login')
+    dispatch(removeFromWishlist(item))
   }
 
+  const handleAddToCart=()=>{    
+   
+    dispatch(addToCart({ item, qty }))
+  }
+
+  
   return (
     <div>
 
-      <div className="card mb-3 bg-light ">
+      <div className="card mb-3 bg-light productCard">
       <Link to={`/products/${item?.id}`} className="text-decoration-none linkdiv">
         <div style={{ height: "200px" }}>
           <img
@@ -40,10 +60,10 @@ const Product = ({ item }) => {
           />
         </div>
         <div className="card-body">
-          {item?.title?.length > 25 ? (
+          {item?.title?.length > 20 ? (
             <h5 className="card-title text-decoration-none" >
               {" "}
-              {item?.title?.substring(0, 24) + "..."}
+              {item?.title?.substring(0, 15) + "..."}
             </h5>
           ) : (
             <h5 className="card-title">{item?.title}</h5>
@@ -51,12 +71,12 @@ const Product = ({ item }) => {
 
           <div className="row " style={{ height: "70px" }}>
             {item?.description && item?.description?.length > 65 ? (
-              <p> {item?.description?.substring(0, 55) + "..."}</p>
+              <p> {item?.description?.substring(0, 50) + "..."}</p>
             ) : (
               <p>{item?.description}</p>
             )}
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between p-0">
             <p>
               <strong>Rs. {item?.price} </strong>
               <del className="text-secondary">
@@ -111,11 +131,9 @@ const Product = ({ item }) => {
             loginStatus?
             <div className="d-flex justify-content-between p-3">
             {
-              wishlistItems.findIndex(element=>(
-                element.id==item.id
-              ))==-1?
+              index==-1?
               <button
-                onClick={() => dispatch(addToWishlist({ item, qty }))}
+                onClick={() => handleAddWishlist()}
                 className="btn likebtn"
               >           
                 <svg
@@ -132,7 +150,7 @@ const Product = ({ item }) => {
               </button>
               :
               <button
-                onClick={() => dispatch(removeFromWishlist(item))}
+                onClick={() => handleRemoveFromWishlist()}
                 className="btn likebtn"
               >      
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -142,7 +160,7 @@ const Product = ({ item }) => {
             }
               <button
                 className="btn btn-primary"
-                onClick={() => dispatch(addToCart({ item, qty }))}
+                onClick={() => handleAddToCart()}
               >
                 Add to Cart
               </button>
@@ -151,7 +169,7 @@ const Product = ({ item }) => {
             <div className="d-flex justify-content-between p-3">
             
               <button
-                onClick={() => handleWishlist()}
+                onClick={() => navigate('/login')}
                 className="btn likebtn"
               >           
                 <svg

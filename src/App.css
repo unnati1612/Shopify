@@ -128,3 +128,10 @@ background-color: #ffcccc !important;
     font-size: 25px !important;
 
   }
+
+  .productCard:hover{
+   
+    background-color:#e1e7fa !important;
+  }
+
+  
