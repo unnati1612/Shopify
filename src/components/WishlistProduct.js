@@ -22,8 +22,8 @@ const WishlistProduct = ({item}) => {
     </div>
     </div>
     <div className='col-md-4 col-12 border d-flex flex-md-column justify-content-around align-items-center '>
-    <button className='btn btn-primary m-2' onClick={()=>{dispatch(removeFromWishlist(item));
-      dispatch(addToCart({item,qty}))} }>Add To Cart</button>
+    <button className='btn btn-primary m-2' onClick={()=>{dispatch(addToCart({item,qty})) ;dispatch(removeFromWishlist(item))
+      } }>Add To Cart</button>
     <button className='btn btn-danger m-2' onClick={()=>dispatch(removeFromWishlist(item))}>Remove</button>
     </div>
     </div>

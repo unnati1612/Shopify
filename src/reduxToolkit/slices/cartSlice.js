@@ -22,7 +22,7 @@ const cartSlice=createSlice({
              let indexUser=users?.findIndex((user)=>(
                   user.email==loginUser
                 ))
-            console.log(loginUser)
+            // console.log(loginUser)
             let cart=users[indexUser]?.cart?users[indexUser]?.cart:[]
             state.products=cart
             state.totalItems=cart.length
@@ -38,7 +38,7 @@ const cartSlice=createSlice({
             
             toast.success('Added to Cart!', {
                 position: "bottom-right",
-                autoClose: 3000,
+                autoClose: 1000,
         toastId:action.payload.item.id,
 
                 hideProgressBar: true,
@@ -48,7 +48,7 @@ const cartSlice=createSlice({
                 progress: undefined,
                 theme: "colored",
                 });
-            console.log(action.payload)
+            // console.log(action.payload)
             let index=state.products.findIndex((item)=>(
                 item.id==action.payload.item.id
             ))
@@ -145,7 +145,7 @@ const cartSlice=createSlice({
                 localStorage.setItem('users',JSON.stringify(users))
             toast.error('Removed From Cart!', {
                 position: "bottom-right",
-                autoClose: 3000,
+                autoClose: 1000,
             toastId:action.payload.id,
 
                 hideProgressBar: true,

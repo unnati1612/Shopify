@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar, OverlayTrigger, Popover } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -45,11 +45,18 @@ const Header = () => {
     })
   }
 let loginStatus = useSelector(state => state.login.loggedIn)
+const popoverBottom = (
+  <Popover id="popover-positioned-bottom" title="Popover bottom" style={{ height: 100, padding:10, }} className='d-flex flex-column justify-content-around align-items-center '>
+    <strong>{loginUser}</strong> 
+    <Button  variant='danger' onClick={handleLogout}>LogOut</Button>
+
+  </Popover>
+);
 
   return (
 
 
-    <Navbar expand="lg" className="bg-body-tertiary sticky-top" >
+    <Navbar expand="lg" className="bg-body-tertiary sticky-top py-0" >
       <Container>
         <Navbar.Brand as={Link} to="/" > <img
           alt=""
@@ -83,13 +90,20 @@ let loginStatus = useSelector(state => state.login.loggedIn)
           </svg>
         </Link >
 
+       
         {
           loginStatus ?
-            <Button className='ms-4' variant='danger' onClick={handleLogout}>LogOut</Button>
-            :
-            <Link to="/login">
-              <Button className='ms-4' variant='outline-primary'>Login</Button>
-            </Link>
+
+          <ButtonToolbar>
+         <OverlayTrigger trigger="click" placement="bottom" overlay={popoverBottom} containerPadding={20}>
+      <button className='rounded-circle btn mt-3 '><svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+</svg></button>
+    </OverlayTrigger>
+    </ButtonToolbar>
+: <Link to="/login">
+<Button className='ms-4' variant='outline-primary'>Login</Button>
+</Link>
         }
       </Container>
     </Navbar>

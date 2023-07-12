@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import WishlistProduct from '../components/WishlistProduct'
 import { useDispatch, useSelector } from 'react-redux'
 import wishlistIcon from '../assets/empty-wishlist.f8e03702.svg'
@@ -34,7 +34,9 @@ const Wishlist = () => {
         <div className='col-md-7 mt-3  container border-round '>
       {
           wishlistItems?.products?.map((item)=>(
+            <Fragment key={item.id}>
               <WishlistProduct item={item}/>
+               </Fragment>
           ))
       }
       </div>

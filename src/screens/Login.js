@@ -25,7 +25,7 @@ const Login = () => {
 
         toast.success('Login Successful!', {
           position: "bottom-right",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -37,7 +37,7 @@ const Login = () => {
       else{
         toast.error('Login Failed!', {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,

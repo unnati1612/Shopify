@@ -36,7 +36,7 @@ let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')
             position: "bottom-right",
         toastId:action.payload.item.id,
 
-            autoClose: 3000,
+            autoClose: 1000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
@@ -132,7 +132,7 @@ let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')
             position: "bottom-right",
         toastId:action.payload.id,
 
-            autoClose: 3000,
+            autoClose: 1000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
