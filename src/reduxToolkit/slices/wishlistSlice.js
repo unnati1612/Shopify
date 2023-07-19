@@ -112,7 +112,7 @@ let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')
         },
         removeFromWishlist:(state,action)=>{
             let loginUser=localStorage.getItem('loginUser')
-
+            console.log(action.payload.title)
             let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):[]
              let indexUser=users?.findIndex((user)=>(
                   user.email==loginUser
@@ -122,7 +122,7 @@ let users=localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')
               ))
               state.products.splice(index,1);
           state.totalItems=state.products.length;
-          let wishlistIndex=users[indexUser].cart.findIndex((product)=>(
+          let wishlistIndex=users[indexUser].wishlist.findIndex((product)=>(
             product.id==action.payload.id
         ))
                 users[indexUser].wishlist.splice(wishlistIndex,1);
