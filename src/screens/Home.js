@@ -23,7 +23,7 @@ const Home = () => {
   },[])
   let latestProductsList=useSelector(state=>state.products)
   let categoriesList=useSelector(state=>state.categories)
-  let data=[]
+
   useEffect(()=>{
     if(latestProductsList?.data?.length>0)
     setLatestProducts(latestProductsList.data)
@@ -91,11 +91,13 @@ const Home = () => {
     <div className=' container' >
     <CarouselHome />
     <div className='mt-5'>
+      <div className='d-flex flex-column justify-content-center align-items-center'>
     <div className='d-flex justify-content-between container'>
     <h2 className='mb-4 ms-4'>Categories</h2>
     <Link to="/category" className='mb-4'>View All</Link>
 
     </div>
+    <div style={{width:"90%"}}>
     <Slider {...settings}>
     {
       categories?.map((category)=>(
@@ -103,6 +105,8 @@ const Home = () => {
           ))
     }      
     </Slider>
+    </div>
+    </div>
     <h2 className='my-5'>Latest Products</h2>
     <div className=' border row'>
     {

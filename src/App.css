@@ -9,7 +9,10 @@ background-color: #ffcccc !important;
 .cursor-pointer{
   cursor: pointer;
 }
-
+.categorybox{
+  width: 140px !important;
+   height: 140px !important;
+}
 .categorybox:nth-child(odd) {
     background: #306bd9;
     color:#ffcccc
@@ -121,12 +124,12 @@ background-color: #ffcccc !important;
 
   .slick-prev:before{
     color:black !important;
-    font-size: 25px !important;
+    font-size: 20px !important;
   }
   .slick-next:before{
     color:black !important;
-    font-size: 25px !important;
-
+    font-size: 20px !important;
+    margin: 0px !important;
   }
 
   .productCard:hover{
