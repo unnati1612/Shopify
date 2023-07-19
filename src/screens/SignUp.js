@@ -95,16 +95,16 @@ return (
   <div className='d-flex justify-content-center align-items-center pt-2'>
 
     <div className='row p-3 signbox container border '>
-      <div className='col-5 p-3 border signupleft d-flex flex-column align-items-center justify-content-between text-white'>
-        <h5 className='logotext'><img src={shopIcon} style={{ width: "32px", height: "32px", }} className='me-1' />SHOPIFY</h5>
+      <div className='col-5 p-3 d-md-block d-none border signupleft d-flex flex-column align-items-center justify-content-between text-white'>
+        <h5 className='logotext'><img src={shopIcon} style={{ width: "32px", height: "32px", }} alt="img" className='me-1' />SHOPIFY</h5>
         <div className='mt-4'>
           <h1 className="text-center">Start Your Journey With Us</h1>
           <p className="text-center mt-3">Discover the World's most Trending Products at your convenience !</p>
         </div>
-        <img src={productimg} style={{ width: "170px", height: "170px" }} className='mt-2' />
+        <img src={productimg} style={{ width: "170px", height: "170px" }} className='mt-2' alt="img" />
       </div>
 
-      <div className=' col-7 d-flex justify-content-center align-items-center flex-column'>
+      <div className=' col-md-7 col-12 d-flex justify-content-center align-items-center flex-column'>
         <h4 className=''>Sign Up</h4>
         <Formik initialValues={initialValues} validationSchema={registerValidation} onSubmit={handleSubmit}>
           {(formik) => (

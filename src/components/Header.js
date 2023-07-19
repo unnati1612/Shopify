@@ -56,7 +56,7 @@ const popoverBottom = (
   return (
 
 
-    <Navbar expand="lg" className="bg-body-tertiary sticky-top py-0" >
+    <Navbar expand="lg" className="bg-body-tertiary sticky-top py-2" >
       <Container>
         <Navbar.Brand as={Link} to="/" > <img
           alt=""

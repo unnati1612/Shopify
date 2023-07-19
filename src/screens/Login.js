@@ -49,10 +49,10 @@ const Login = () => {
     }
   }
   return (
-    <div className='container  pt-2'>
-        <div className='row ' >
-        <div className='col-6 logindiv p-3 m-0'>
-          <div className='border border-3 rounded-3 p-3' style={{width:"80%"}}>
+    <div className=' d-flex justify-content-center align-items-center pt-2'>
+        <div className='row container' >
+        <div className='col-md-5 col-12  logindiv p-3 m-0'>
+          <div className='border border-3 rounded-3 p-3' style={{width:"100%"}}>
             <div className='text-center'>
             <h4 >Welcome Back !</h4>  
             <p>Login to start Shopping!!</p>
@@ -90,8 +90,8 @@ const Login = () => {
             </Formik>
           </div>
         </div>
-        <div className='col-6 p-0 m-0'>     
-        <img src={loginbg} style={{width:"100%" , height:"85vh"}} className='' />
+        <div className='col-md-7 col-12 p-0 m-0 d-md-block d-none' >     
+        <img src={loginbg} style={{width:"100%" , height:"85vh"}} className='' alt="img" />
         </div>
         </div>
     </div>
